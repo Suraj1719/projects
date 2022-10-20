@@ -9,7 +9,7 @@ import random
 
 f=open("dictionaryWord.txt","r")
 data=f.readline()
-words=data.split(e)
+words=data.split()
 
 word=random.choice(words)
 word=word.upper()
