@@ -1,0 +1,45 @@
+It is a game where we have to guess the correct word in a limited guess .
+
+code :
+
+import random
+
+#we have some word list
+#words=["SURAJ","LOVE","LAPTOP","DESKTOP"]
+
+f=open("dictionaryWord.txt","r")
+data=f.readline()
+words=data.split(e)
+
+word=random.choice(words)
+word=word.upper()
+total_chance=4
+print("You have total chances of ",total_chance,"to guess the word .")
+guessed_word="-"*len(word)
+
+while total_chance!=0:
+
+    print(guessed_word)
+    letter=input("Guessed letter : ").upper()
+    if letter in word:
+
+        for index in range(len(word)):
+
+            if word[index]==letter:
+
+                guessed_word=guessed_word[:index]+letter+guessed_word[index+1:]
+                
+        if guessed_word==word:
+
+            print("Congratulation ! You won .")
+            break
+    else:
+        total_chance=total_chance-1
+        print("Incorrect guess :")
+        print("Remaining chances are :",total_chance)
+
+else:
+    print("Game Over !!! ")
+    print("You lose the game .")
+    print("All chances are exusted .")
+print("The Correct word is :",word)
